@@ -183,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-10 11:07:16" itemprop="dateModified" datetime="2025-03-10T11:07:16+08:00">2025-03-10</time>
+                <time title="Modified: 2025-03-10 15:07:34" itemprop="dateModified" datetime="2025-03-10T15:07:34+08:00">2025-03-10</time>
               </span>
 
           
@@ -202,17 +202,74 @@
 </li>
 <li><p>正式从头开始读工程源码，总结学习源码工程的一般方法，为以后读其它工程源码总结经验</p>
 </li>
+<li><p>使用学习的技术和当今较新的技术实现自己的数据库程序</p>
+</li>
 </ol>
 <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ul>
 <li><p>从头开始 commit</p>
+<ul>
+<li>从第一个提交开始，从头学习，了解软件的演变历史，对代码有更为感性的认识；</li>
+</ul>
 </li>
 <li><p>文件结构 file structure</p>
+<ul>
+<li>主要关注 backend 和 bin 两个文件夹，backend 是数据库主要功能实现代码所在位置，bin 是生成二进制命令的代码所在位置；</li>
+</ul>
 </li>
 <li><p>工程架构 architecture</p>
+<ul>
+<li><p>C&#x2F;S 模型</p>
+<ul>
+<li>客户端连接服务端，在客户端键入 SQL，发送给服务端处理执行，将结果返回给客户端</li>
+</ul>
+</li>
+<li><p>进程结构（CPU）</p>
+<ul>
+<li><p>Postmaster 进程：守护进程，接收用户的连接请求，并分配服务进程</p>
+</li>
+<li><p>后端服务进程：一个客户端连接分配一个后端服务进程，用于执行用户的 SQL</p>
+</li>
+</ul>
+</li>
+<li><p>内存结构（内存）</p>
+<ul>
+<li><p>磁盘缓冲区：将磁盘中的常用的数据存放在内存中</p>
+</li>
+<li><p>工作内存：执行排序、分组时使用的内存</p>
+</li>
+<li><p>其它缓存：比如缓存执行计划，遇到相同的 SQL，可以在缓存中查找计划</p>
+</li>
+</ul>
+</li>
+<li><p>存储管理（磁盘）</p>
+<ul>
+<li><p> 表和索引存储</p>
+</li>
+<li><p>日志管理：WAL 预写日志，用于异常情况下的数据重放</p>
+</li>
+</ul>
+</li>
+<li><p>查询处理</p>
+<ul>
+<li>解析 &#x3D;&gt; 分析 &#x3D;&gt; 优化 &#x3D;&gt; 执行</li>
+</ul>
+</li>
+</ul>
 </li>
 <li><p>代码结构 code structure</p>
+<ul>
+<li><p>代码主要使用 C 语言写成，使用 make 编译</p>
+</li>
+<li><p>C 语言更贴近机器，对于数据库这种追求效率的软件来说，C 语言更能提升效率，但有内存不安全的问题。</p>
+</li>
+<li><p>Makefile 的编写较为复杂，可以使用 cmake 改写。最新版本的 PG 已经使用了 Meson 进行代码编译管理。</p>
+</li>
+</ul>
 </li>
 <li><p>函数功能 function</p>
+<ul>
+<li>在每个提交上，对主要函数功能进行分析。</li>
+</ul>
 </li>
 </ul>
 
