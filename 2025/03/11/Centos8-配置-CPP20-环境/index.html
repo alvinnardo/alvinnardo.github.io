@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="背景描述 通过学习 Postgres 源码，精通数据库常见技术  正式从头开始读工程源码，总结学习源码工程的一般方法，为以后读其它工程源码总结经验  使用学习的技术和当今较新的技术实现自己的数据库程序   方法 从头开始 commit  从第一个提交开始，从头学习，了解软件的演变历史，对代码有更为感性的认识；   文件结构 file structure  主要关注 backend 和 bin 两个">
+  <meta name="description" content="More efforts, more fortune.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postgres_000">
-<meta property="og:url" content="http://example.com/2025/03/06/postgres-000/index.html">
+<meta property="og:title" content="Centos8 配置 C++20 环境">
+<meta property="og:url" content="http://example.com/2025/03/11/Centos8-%E9%85%8D%E7%BD%AE-CPP20-%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="背景描述 通过学习 Postgres 源码，精通数据库常见技术  正式从头开始读工程源码，总结学习源码工程的一般方法，为以后读其它工程源码总结经验  使用学习的技术和当今较新的技术实现自己的数据库程序   方法 从头开始 commit  从第一个提交开始，从头学习，了解软件的演变历史，对代码有更为感性的认识；   文件结构 file structure  主要关注 backend 和 bin 两个">
+<meta property="og:description" content="More efforts, more fortune.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-06T03:19:34.000Z">
-<meta property="article:modified_time" content="2025-03-10T07:07:34.000Z">
+<meta property="article:published_time" content="2025-03-11T07:59:31.000Z">
+<meta property="article:modified_time" content="2025-03-11T07:59:31.865Z">
 <meta property="article:author" content="Alvin">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/03/06/postgres-000/">
+<link rel="canonical" href="http://example.com/2025/03/11/Centos8-%E9%85%8D%E7%BD%AE-CPP20-%E7%8E%AF%E5%A2%83/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>postgres_000 | Hexo</title>
+  <title>Centos8 配置 C++20 环境 | Hexo</title>
   
 
 
@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/06/postgres-000/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/11/Centos8-%E9%85%8D%E7%BD%AE-CPP20-%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          postgres_000
+          Centos8 配置 C++20 环境
         </h1>
 
         <div class="post-meta">
@@ -178,15 +178,8 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2025-03-06 11:19:34" itemprop="dateCreated datePublished" datetime="2025-03-06T11:19:34+08:00">2025-03-06</time>
+              <time title="Created: 2025-03-11 15:59:31" itemprop="dateCreated datePublished" datetime="2025-03-11T15:59:31+08:00">2025-03-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-10 15:07:34" itemprop="dateModified" datetime="2025-03-10T15:07:34+08:00">2025-03-10</time>
-              </span>
 
           
 
@@ -199,82 +192,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h1><ol>
-<li><p>通过学习 Postgres 源码，精通数据库常见技术</p>
-</li>
-<li><p>正式从头开始读工程源码，总结学习源码工程的一般方法，为以后读其它工程源码总结经验</p>
-</li>
-<li><p>使用学习的技术和当今较新的技术实现自己的数据库程序</p>
-</li>
-</ol>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ul>
-<li><p>从头开始 commit</p>
-<ul>
-<li>从第一个提交开始，从头学习，了解软件的演变历史，对代码有更为感性的认识；</li>
-</ul>
-</li>
-<li><p>文件结构 file structure</p>
-<ul>
-<li>主要关注 backend 和 bin 两个文件夹，backend 是数据库主要功能实现代码所在位置，bin 是生成二进制命令的代码所在位置；</li>
-</ul>
-</li>
-<li><p>工程架构 architecture</p>
-<ul>
-<li><p>C&#x2F;S 模型</p>
-<ul>
-<li>客户端连接服务端，在客户端键入 SQL，发送给服务端处理执行，将结果返回给客户端</li>
-</ul>
-</li>
-<li><p>进程结构（CPU）</p>
-<ul>
-<li><p>Postmaster 进程：守护进程，接收用户的连接请求，并分配服务进程</p>
-</li>
-<li><p>后端服务进程：一个客户端连接分配一个后端服务进程，用于执行用户的 SQL</p>
-</li>
-</ul>
-</li>
-<li><p>内存结构（内存）</p>
-<ul>
-<li><p>磁盘缓冲区：将磁盘中的常用的数据存放在内存中</p>
-</li>
-<li><p>工作内存：执行排序、分组时使用的内存</p>
-</li>
-<li><p>其它缓存：比如缓存执行计划，遇到相同的 SQL，可以在缓存中查找计划</p>
-</li>
-</ul>
-</li>
-<li><p>存储管理（磁盘）</p>
-<ul>
-<li><p> 表和索引存储</p>
-</li>
-<li><p>日志管理：WAL 预写日志，用于异常情况下的数据重放</p>
-</li>
-</ul>
-</li>
-<li><p>查询处理</p>
-<ul>
-<li>解析 &#x3D;&gt; 分析 &#x3D;&gt; 优化 &#x3D;&gt; 执行</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码结构 code structure</p>
-<ul>
-<li><p>代码主要使用 C 语言写成，使用 make 编译</p>
-</li>
-<li><p>C 语言更贴近机器，对于数据库这种追求效率的软件来说，C 语言更能提升效率，但有内存不安全的问题。</p>
-</li>
-<li><p>Makefile 的编写较为复杂，可以使用 cmake 改写。最新版本的 PG 已经使用了 Meson 进行代码编译管理。</p>
-</li>
-</ul>
-</li>
-<li><p>函数功能 function</p>
-<ul>
-<li>在每个提交上，对主要函数功能进行分析。</li>
-</ul>
-</li>
-</ul>
-
+        
     </div>
 
     
@@ -289,13 +207,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/03/05/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2025/03/10/postgres-001/" rel="prev" title="postgres 001">
+      <i class="fa fa-chevron-left"></i> postgres 001
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/03/10/postgres-001/" rel="next" title="postgres 001">
-      postgres 001 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -354,7 +269,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">背景描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
