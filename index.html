@@ -152,6 +152,181 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/17/postgres-002/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alvin">
+      <meta itemprop="description" content="More efforts, more fortune.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/17/postgres-002/" class="post-title-link" itemprop="url">postgres-002</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-17 09:44:39 / Modified: 18:01:25" itemprop="dateCreated datePublished" datetime="2025-03-17T09:44:39+08:00">2025-03-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="execAmi-c"><a href="#execAmi-c" class="headerlink" title="execAmi.c"></a>execAmi.c</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>   访问方法接口 (access method interface)</p>
+<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><ul>
+<li><p>ExecOpenScanR</p>
+<ul>
+<li><p>打开一个关系，获取扫描描述</p>
+</li>
+<li><p>ExecOpenR</p>
+</li>
+<li><p>ExecBeginScan</p>
+</li>
+</ul>
+</li>
+<li><p>ExecOpenR</p>
+<ul>
+<li>给定一个 oid，返回关系的描述符</li>
+</ul>
+</li>
+<li><p>ExecBeginScan</p>
+<ul>
+<li><p>在当前的方向开始扫描一个关系，获取扫描描述</p>
+</li>
+<li><p>index_beginscan</p>
+</li>
+<li><p>heap_beginscan</p>
+</li>
+<li><p>ScanDirectionIsBackward</p>
+</li>
+</ul>
+</li>
+<li><p>ExecCloseR</p>
+<ul>
+<li><p>关闭扫描描述和关系，如果是索引扫描，则还需关闭索引扫描描述和索引关系</p>
+</li>
+<li><p>heap_endscan</p>
+</li>
+<li><p>heap_close</p>
+</li>
+<li><p>index_endscan</p>
+</li>
+<li><p>index_close</p>
+</li>
+</ul>
+</li>
+<li><p>ExecReScan</p>
+<ul>
+<li><p>执行 ReScan</p>
+</li>
+<li><p>ExecSeqReScan</p>
+</li>
+<li><p>ExecIndexReScan</p>
+</li>
+<li><p>ExecTeeReScan</p>
+</li>
+</ul>
+</li>
+<li><p>ExecReScanR</p>
+<ul>
+<li><p>真正执行 rescan 的地方</p>
+</li>
+<li><p>heap_rescan 重新启动一个关系扫描</p>
+</li>
+</ul>
+</li>
+<li><p>ExecMarkPos</p>
+<ul>
+<li><p>标记当前扫描的位置</p>
+</li>
+<li><p>ExecSeqMarkPos</p>
+</li>
+<li><p>ExecIndexMarkPos</p>
+</li>
+<li><p>ExecSortMarkPos</p>
+</li>
+</ul>
+</li>
+<li><p>ExecRestrPos</p>
+<ul>
+<li><p>恢复之前在 ExecMarkPos() 中保存的扫描位置</p>
+</li>
+<li><p>ExecSeqRestrPos</p>
+</li>
+<li><p>ExecIndexRestrPos</p>
+</li>
+<li><p>ExecSortRestrPos</p>
+</li>
+</ul>
+</li>
+<li><p>ExecCreatR</p>
+<ul>
+<li>创建一个关系</li>
+</ul>
+</li>
+</ul>
+<h3 id="execdebug-h"><a href="#execdebug-h" class="headerlink" title="execdebug.h"></a>execdebug.h</h3><h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>定义在 executor 中的 debug 行为</p>
+<p>在代码中调用了很多宏函数，在该文件中定义这些宏函数被生成具体的函数，或被删除。</p>
+<h3 id="execdefs-h"><a href="#execdefs-h" class="headerlink" title="execdefs.h"></a>execdefs.h</h3><h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><p>定义了一些宏</p>
+<h3 id="execFlatten-c-TODO-没看懂"><a href="#execFlatten-c-TODO-没看懂" class="headerlink" title="execFlatten.c (TODO 没看懂)"></a>execFlatten.c (TODO 没看懂)</h3><h4 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h4><p>处理在 SQL 目标列和函数返回之中和 flattening sets 有关的节点</p>
+<h4 id="函数调用-1"><a href="#函数调用-1" class="headerlink" title="函数调用"></a>函数调用</h4><ul>
+<li><p>ExecEvalIter</p>
+<ul>
+<li><p>每次调用时遍历一次函数所有的返回值类型</p>
+</li>
+<li><p>ExecEvalExpr</p>
+</li>
+</ul>
+</li>
+<li><p>ExecEvalFjoin</p>
+<ul>
+<li><p>ExecEvalIter</p>
+</li>
+<li><p>FjoinBumpOuterNodes</p>
+</li>
+</ul>
+</li>
+<li><p>FjoinBumpOuterNodes</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/11/Centos8-%E9%85%8D%E7%BD%AE-CPP20-%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -276,7 +451,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-03-13 15:19:36" itemprop="dateModified" datetime="2025-03-13T15:19:36+08:00">2025-03-13</time>
+                <time title="Modified: 2025-03-17 18:01:25" itemprop="dateModified" datetime="2025-03-17T18:01:25+08:00">2025-03-17</time>
               </span>
 
           
@@ -315,7 +490,19 @@
 </ul>
 </li>
 </ul>
-<h3 id="头文件调用关系"><a href="#头文件调用关系" class="headerlink" title="头文件调用关系"></a>头文件调用关系</h3><ul>
+<h3 id="main-c"><a href="#main-c" class="headerlink" title="main.c"></a>main.c</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>程序的入口，选择进入 Postmaster, bootstrap, postgres 模式</p>
+<h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4><ul>
+<li><p>init_address_fixup</p>
+</li>
+<li><p>PostmasterMain</p>
+</li>
+<li><p>BootstrapMain</p>
+</li>
+<li><p>PostgresMain</p>
+</li>
+</ul>
+<h3 id="postgres-c"><a href="#postgres-c" class="headerlink" title="postgres.c"></a>postgres.c</h3><h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>Postgres 的后端接口</p>
+<h4 id="函数调用-1"><a href="#函数调用-1" class="headerlink" title="函数调用"></a>函数调用</h4><h3 id="头文件调用关系"><a href="#头文件调用关系" class="headerlink" title="头文件调用关系"></a>头文件调用关系</h3><ul>
 <li><p>main</p>
 <ul>
 <li><p>c.h</p>
@@ -1114,7 +1301,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
